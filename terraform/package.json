@@ -1,0 +1,11 @@
+{
+  "name": "terraform",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "yarn run init",
+    "init": "terraform init",
+    "plan": "terraform plan -var-file=production.tfvars",
+    "apply": "terraform plan -var-file=production.tfvars"
+  }
+}
