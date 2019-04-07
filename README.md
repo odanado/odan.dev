@@ -2,6 +2,7 @@
 
 ## init
 ```bash
+$ nodenv install
 $ yarn install
 ```
 
