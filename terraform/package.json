@@ -6,6 +6,6 @@
     "postinstall": "yarn run init",
     "init": "terraform init",
     "plan": "terraform plan -var-file=production.tfvars",
-    "apply": "terraform plan -var-file=production.tfvars"
+    "apply": "terraform apply -var-file=production.tfvars"
   }
 }
