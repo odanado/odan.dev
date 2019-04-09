@@ -1,15 +1,18 @@
 version: 2.1
 
+defaults: &defaults
+  working_directory: ~/project
+  executor:
+    name: node/default
+    tag: 8.15.1
+
 orbs:
   node: circleci/node@1.0.1
   aws-cli: circleci/aws-cli@0.1.13
 
 jobs:
-  build:
-    executor:
-      name: node/default
-      tag: 8.15.1
-    working_directory: ~/project
+  install:
+    <<: *defaults
     steps:
       - checkout
       - node/with-cache:
@@ -18,6 +21,34 @@ jobs:
                 name: Install dependency
                 command: yarn
           cache-key: yarn.lock
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  lint:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Lint
+          command: yarn workspace app lint
+
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Test
+          command: yarn workspace app test
+
+  build:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
       - run:
           name: Build
           command: ./bin/build.sh
@@ -25,6 +56,7 @@ jobs:
           root: .
           paths:
             - .
+
   deploy:
     executor: aws-cli/default
     working_directory: ~/project
@@ -38,9 +70,10 @@ jobs:
 
 workflows:
   version: 2
-  build_and_deploy:
+  deploy:
     jobs:
-      - build
-      - deploy:
-          requires:
-            - build
+      - install
+      - lint: { requires: [install] }
+      - test: { requires: [install] }
+      - build: { requires: [lint, test]}
+      - deploy: { requires: [build] }
