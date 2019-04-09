@@ -117,39 +117,30 @@ resource "aws_cloudfront_origin_access_identity" "site" {
 data "aws_iam_policy_document" "deploy_policy_document" {
   statement {
     actions = [
-      "s3:PutObject",
       "s3:ListBucket",
+    ]
+
+    resources = [
+      "${aws_s3_bucket.site.arn}",
+    ]
+  }
+
+  statement {
+    actions = [
+      "s3:PutObject",
       "s3:DeleteObject",
     ]
 
     resources = [
       "${aws_s3_bucket.site.arn}/*",
-      "${aws_s3_bucket.site.arn}",
     ]
   }
 }
 
-data "aws_iam_policy_document" "assume_role_policy_document" {
-  statement {
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "AWS"
-      identifiers = ["${aws_iam_user.deployer.arn}"]
-    }
-  }
-}
-
-resource "aws_iam_role_policy" "deploy_policy" {
-  name   = "site_${var.domain}_deploy_policy"
-  role   = "${aws_iam_role.deploy_role.id}"
+resource "aws_iam_user_policy" "deployer_policy" {
+  name = "site_${var.domain}_deployer_policy"
+  user = "${aws_iam_user.deployer.id}"
   policy = "${data.aws_iam_policy_document.deploy_policy_document.json}"
-}
-
-resource "aws_iam_role" "deploy_role" {
-  name = "site_${var.domain}_deploy_role"
-
-  assume_role_policy = "${data.aws_iam_policy_document.assume_role_policy_document.json}"
 }
 
 resource "aws_iam_user" "deployer" {
