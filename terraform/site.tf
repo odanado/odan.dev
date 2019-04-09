@@ -1,14 +1,22 @@
+terraform {
+  required_version = ">= 0.11.0"
+
+  backend "s3" {
+    region = "ap-northeast-1"
+  }
+}
+
 provider "aws" {
-  region  = "ap-northeast-1"
+  region = "ap-northeast-1"
 }
 
 provider "aws" {
   region = "us-east-1"
-  alias = "us-east-1"
+  alias  = "us-east-1"
 }
 
 variable "domain" {
-  type = "string"
+  type        = "string"
   description = "domain name"
 }
 
@@ -52,13 +60,13 @@ resource "aws_s3_bucket" "site" {
 resource "aws_s3_bucket_policy" "site" {
   bucket = "${aws_s3_bucket.site.id}"
   policy = "${data.aws_iam_policy_document.s3_policy.json}"
-
 }
 
 resource "aws_cloudfront_distribution" "site" {
   origin {
     domain_name = "${aws_s3_bucket.site.bucket_regional_domain_name}"
     origin_id   = "${aws_s3_bucket.site.id}"
+
     s3_origin_config {
       origin_access_identity = "${aws_cloudfront_origin_access_identity.site.cloudfront_access_identity_path}"
     }
@@ -95,12 +103,57 @@ resource "aws_cloudfront_distribution" "site" {
       restriction_type = "none"
     }
   }
+
   viewer_certificate {
     acm_certificate_arn = "${data.aws_acm_certificate.acm.arn}"
-    ssl_support_method = "sni-only"
+    ssl_support_method  = "sni-only"
   }
 }
 
 resource "aws_cloudfront_origin_access_identity" "site" {
   comment = "${var.domain} origin access identity"
+}
+
+data "aws_iam_policy_document" "deploy_policy_document" {
+  statement {
+    actions = [
+      "s3:ListBucket",
+    ]
+
+    resources = [
+      "${aws_s3_bucket.site.arn}",
+    ]
+  }
+
+  statement {
+    actions = [
+      "s3:PutObject",
+      "s3:DeleteObject",
+    ]
+
+    resources = [
+      "${aws_s3_bucket.site.arn}/*",
+    ]
+  }
+
+  statement {
+    actions = [
+      "cloudfront:ListDistributions",
+      "cloudfront:CreateInvalidation"
+    ]
+
+    resources = [
+      "*"
+    ]
+  }
+}
+
+resource "aws_iam_user_policy" "deployer_policy" {
+  name = "site_${var.domain}_deployer_policy"
+  user = "${aws_iam_user.deployer.id}"
+  policy = "${data.aws_iam_policy_document.deploy_policy_document.json}"
+}
+
+resource "aws_iam_user" "deployer" {
+  name = "site_${var.domain}_deployer"
 }

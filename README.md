@@ -4,6 +4,7 @@
 ```bash
 $ nodenv install
 $ yarn install
+$ yarn workspace terraform run init
 ```
 
 ## build
