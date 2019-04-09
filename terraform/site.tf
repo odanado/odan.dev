@@ -135,6 +135,16 @@ data "aws_iam_policy_document" "deploy_policy_document" {
       "${aws_s3_bucket.site.arn}/*",
     ]
   }
+
+  statement {
+    actions = [
+      "cloudfront:CreateInvalidation"
+    ]
+
+    resources = [
+      "*"
+    ]
+  }
 }
 
 resource "aws_iam_user_policy" "deployer_policy" {
