@@ -1,7 +1,7 @@
 <template>
   <main class="main">
-      <span class="emoji rotate">🤗</span>
-      <span class="domain">odan.dev</span>
+    <span class="emoji rotate">🤗</span>
+    <span class="domain">odan.dev</span>
   </main>
 </template>
 

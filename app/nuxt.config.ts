@@ -1,6 +1,7 @@
-export default {
-  mode: 'universal',
+import NuxtConfiguration from '@nuxt/config'
 
+const config: NuxtConfiguration = {
+  mode: 'universal',
   /*
   ** Headers of the page
   */
@@ -51,7 +52,7 @@ export default {
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
+        config.module!.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
@@ -61,3 +62,5 @@ export default {
     }
   }
 }
+
+export default config

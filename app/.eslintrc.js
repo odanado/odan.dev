@@ -1,11 +1,7 @@
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    node: true
-  },
+  plugins: ['@typescript-eslint'],
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: '@typescript-eslint/parser'
   },
   extends: [
     '@nuxtjs',
@@ -13,5 +9,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'error'
   }
 }

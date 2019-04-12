@@ -15,10 +15,13 @@
     "@nuxtjs/pwa": "^2.6.0",
     "cross-env": "^5.2.0",
     "normalize.css": "^8.0.1",
-    "nuxt": "^2.4.0"
+    "nuxt": "^2.6.1",
+    "ts-node": "^8.0.3"
   },
   "devDependencies": {
+    "@nuxt/typescript": "^2.6.1",
     "@nuxtjs/eslint-config": "^0.0.1",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
