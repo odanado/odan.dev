@@ -49,7 +49,6 @@ data "aws_iam_policy_document" "s3_policy" {
 
 resource "aws_s3_bucket" "site" {
   bucket = "${var.domain}"
-  acl    = "public-read"
 
   website {
     index_document = "index.html"

@@ -5,7 +5,7 @@
   </main>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .main {
   height: 100vh;
   width: 100vw;
@@ -21,6 +21,7 @@
 }
 .domain {
     font-size: 2rem;
+    color: $primary-color;
 }
 @keyframes rotate {
   from {
