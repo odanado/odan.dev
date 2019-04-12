@@ -45,7 +45,8 @@ const config: NuxtConfiguration = {
 
   styleResources: {
     scss: [
-      '~/assets/variables/color.scss '
+      '~/assets/variables/color.scss',
+      '~/assets/variables/font-size.scss'
     ]
   },
 
