@@ -1,9 +1,23 @@
 <template>
   <main class="main">
-    <span class="emoji rotate">🤗</span>
-    <span class="domain">odan.dev</span>
+    <v-icon class="icon" />
+    <v-about-me />
   </main>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+import VIcon from '~/components/VIcon.vue'
+import VAboutMe from '~/components/VAboutMe.vue'
+
+export default Vue.extend({
+  components: {
+    VIcon,
+    VAboutMe
+  }
+})
+</script>
 
 <style lang="scss" scoped>
 .main {
@@ -14,15 +28,12 @@
   justify-content: center;
   flex-direction: column;
 }
-.emoji {
-  width: 16rem;
-  display: block;
-  font-size: 16rem;
+
+.icon {
+  width: 12.8rem;
+  height: 12.8rem;
 }
-.domain {
-    font-size: 2rem;
-    color: $primary-color;
-}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);

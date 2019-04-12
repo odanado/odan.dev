@@ -8,7 +8,7 @@
 @import "~/assets/global.scss";
 
 html {
-  font-size: 16px;
+  font-size: 62.5%;
   background-color: $light-bg-color;
 }
 </style>
