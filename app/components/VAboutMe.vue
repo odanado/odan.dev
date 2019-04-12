@@ -1,3 +1,3 @@
 <template>
-  <p>Abount Me</p>
+  <p>About Me</p>
 </template>
