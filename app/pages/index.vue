@@ -1,6 +1,6 @@
 <template>
   <main class="main">
-    <v-icon class="icon" />
+    <v-icon class="icon rotate" />
     <v-about-me />
   </main>
 </template>
