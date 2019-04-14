@@ -16,7 +16,8 @@
     "cross-env": "^5.2.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.6.1",
-    "ts-node": "^8.0.3"
+    "ts-node": "^8.0.3",
+    "v-click-outside": "^2.1.1"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.8.1",

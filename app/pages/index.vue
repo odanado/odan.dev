@@ -1,11 +1,11 @@
 <template>
   <main class="main">
-    <v-icon class="icon" />
+    <v-icon v-click-outside="resetCount" class="icon" :class="rotateClass" @click.native="incrementCount" />
     <v-aboutme class="aboutme" />
   </main>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue'
 
 import VIcon from '~/components/VIcon.vue'
@@ -15,6 +15,26 @@ export default Vue.extend({
   components: {
     VIcon,
     VAboutme
+  },
+  data() {
+    return {
+      count: 0
+    }
+  },
+  computed: {
+    rotateClass() {
+      return {
+        rotate: this.count >= 5
+      }
+    }
+  },
+  methods: {
+    resetCount() {
+      this.count = 0
+    },
+    incrementCount() {
+      this.count++
+    }
   }
 })
 </script>

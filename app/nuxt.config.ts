@@ -34,6 +34,7 @@ const config: NuxtConfiguration = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/v-click-outside', ssr: false }
   ],
 
   /*
