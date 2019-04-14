@@ -1,20 +1,40 @@
 <template>
   <main class="main">
-    <v-icon class="icon rotate" />
-    <v-about-me />
+    <v-icon v-click-outside="resetCount" class="icon" :class="rotateClass" @click.native="incrementCount" />
+    <v-aboutme class="aboutme" />
   </main>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue'
 
 import VIcon from '~/components/VIcon.vue'
-import VAboutMe from '~/components/VAboutMe.vue'
+import VAboutme from '~/components/VAboutme.vue'
 
 export default Vue.extend({
   components: {
     VIcon,
-    VAboutMe
+    VAboutme
+  },
+  data() {
+    return {
+      count: 0
+    }
+  },
+  computed: {
+    rotateClass() {
+      return {
+        rotate: this.count >= 5
+      }
+    }
+  },
+  methods: {
+    resetCount() {
+      this.count = 0
+    },
+    incrementCount() {
+      this.count++
+    }
   }
 })
 </script>
@@ -23,15 +43,24 @@ export default Vue.extend({
 .main {
   height: 100vh;
   width: 100vw;
+  max-width: 720px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: auto;
 }
 
 .icon {
   width: 12.8rem;
   height: 12.8rem;
+  margin: 0 0 1.6rem;
+}
+
+.aboutme {
+  width: 100%;
+  margin: 0.8rem 0;
+  box-sizing: border-box;
 }
 
 @keyframes rotate {

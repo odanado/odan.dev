@@ -26,13 +26,15 @@ const config: NuxtConfiguration = {
   ** Global CSS
   */
   css: [
-    'normalize.css'
+    'normalize.css',
+    '@fortawesome/fontawesome-free/css/all.css'
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/v-click-outside', ssr: false }
   ],
 
   /*
@@ -45,7 +47,8 @@ const config: NuxtConfiguration = {
 
   styleResources: {
     scss: [
-      '~/assets/variables/color.scss '
+      '~/assets/variables/color.scss',
+      '~/assets/variables/font-size.scss'
     ]
   },
 
