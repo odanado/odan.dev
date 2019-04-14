@@ -21,9 +21,10 @@ export default Vue.extend({
     return {
       items: [
         {
-          text: 'About Me',
+          text: 'About me',
           route: '/'
-        },
+        }
+        /*
         {
           text: 'Accounts',
           route: '/accounts'
@@ -36,6 +37,7 @@ export default Vue.extend({
           text: 'OSS',
           route: '/oss'
         }
+        */
       ]
     }
   }

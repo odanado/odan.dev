@@ -19,6 +19,7 @@
     "ts-node": "^8.0.3"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.1",
     "@nuxt/typescript": "^2.6.1",
     "@nuxtjs/eslint-config": "^0.0.1",
     "@nuxtjs/style-resources": "^0.1.2",

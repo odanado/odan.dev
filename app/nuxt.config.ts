@@ -26,7 +26,8 @@ const config: NuxtConfiguration = {
   ** Global CSS
   */
   css: [
-    'normalize.css'
+    'normalize.css',
+    '@fortawesome/fontawesome-free/css/all.css'
   ],
 
   /*
