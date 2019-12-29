@@ -1,6 +1,6 @@
 <template>
   <main class="main">
-    <v-icon v-click-outside="resetCount" class="icon" :class="rotateClass" @click.native="incrementCount" />
+    <v-icon v-click-outside="resetCount" :class="rotateClass" @click.native="incrementCount" class="icon" />
     <v-aboutme class="aboutme" />
   </main>
 </template>
