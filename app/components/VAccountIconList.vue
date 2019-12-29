@@ -42,6 +42,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/global.scss";
+
 .accounts {
   .account {
     text-decoration: none;

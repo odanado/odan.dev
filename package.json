@@ -3,7 +3,10 @@
   "private": true,
   "repository": "git@github.com:odanado/odan.dev.git",
   "author": "odan <odan3240@gmail.com>",
-  "workspaces": ["app", "terraform"],
+  "workspaces": [
+    "app",
+    "terraform"
+  ],
   "scripts": {
     "dev": "yarn workspace app dev"
   }

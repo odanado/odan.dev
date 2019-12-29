@@ -1,6 +1,6 @@
-import NuxtConfiguration from '@nuxt/config'
+import { Configuration } from '@nuxt/types'
 
-const config: NuxtConfiguration = {
+const config: Configuration = {
   mode: 'universal',
   /*
   ** Headers of the page
@@ -47,10 +47,12 @@ const config: NuxtConfiguration = {
 
   styleResources: {
     scss: [
-      '~/assets/variables/color.scss',
-      '~/assets/variables/font-size.scss'
+      './assets/variables/color.scss',
+      './assets/variables/font-size.scss'
     ]
   },
+
+  buildModules: ['@nuxt/typescript-build'],
 
   /*
   ** Build configuration

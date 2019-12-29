@@ -25,6 +25,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/global.scss";
+
 .aboutme {
   padding: 1.2rem;
   font-size: $font-size-medium;
