@@ -25,6 +25,10 @@ html {
   color: $text-color;
 }
 
+body {
+  margin: 0;
+}
+
 .page-enter-active, .page-leave-active {
   transition: opacity .5s;
 }

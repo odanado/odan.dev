@@ -45,6 +45,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/global.scss";
+
 .header {
   display: flex;
   align-items: center;

@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate",
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
     "test": "jest"
   },
   "dependencies": {
+    "@nuxt/typescript-runtime": "^0.3.5",
     "@nuxtjs/pwa": "^2.6.0",
     "cross-env": "^5.2.0",
     "normalize.css": "^8.0.1",
@@ -22,9 +23,10 @@
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.8.1",
     "@nuxt/typescript": "^2.6.1",
+    "@nuxt/typescript-build": "^0.5.4",
     "@nuxtjs/eslint-config": "^0.0.1",
-    "@nuxtjs/style-resources": "^0.1.2",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
+    "@typescript-eslint/parser": "^2.13.0",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
