@@ -30,11 +30,8 @@ const config: Configuration = {
     '@fortawesome/fontawesome-free/css/all.css'
   ],
 
-  /*
-  ** Plugins to load before mounting the App
-  */
   plugins: [
-    { src: '~/plugins/v-click-outside', ssr: false }
+    { src: './plugins/v-click-outside', mode: 'client' }
   ],
 
   /*
