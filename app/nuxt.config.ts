@@ -41,16 +41,8 @@ const config: Configuration = {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/pwa',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/pwa'
   ],
-
-  styleResources: {
-    scss: [
-      './assets/variables/color.scss',
-      './assets/variables/font-size.scss'
-    ]
-  },
 
   buildModules: ['@nuxt/typescript-build'],
 
