@@ -36,7 +36,12 @@ const AccountList: FC<Props> = ({ className }) => {
     <ul className={`${className} list-disc pl-8`}>
       {accounts.map((account) => (
         <li key={account.service}>
-          <a href={account.url} target="_blank" rel="noreferrer">
+          <a
+            className="underline"
+            href={account.url}
+            target="_blank"
+            rel="noreferrer"
+          >
             {account.service}
           </a>
         </li>
