@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import Header from "../components/Header";
 import AccountList from "../components/AccountList";
+import { imageLoader } from "../utils/image-loader";
 
 const Home: NextPage = () => {
   return (
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
       <main className="bg-gray-100 h-screen w-screen">
         <div className="md:container md:mx-auto px-4 w-full h-full flex items-center justify-center flex-col">
           <Image
+            loader={imageLoader}
             src="/icon.jpeg"
             width={128}
             height={128}
