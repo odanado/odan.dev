@@ -3,7 +3,7 @@
 set -eu
 
 echo "copy to s3 bucket"
-aws s3 cp --recursive app/dist/ s3://odan.dev/
+aws s3 cp --recursive app/out/ s3://odan.dev/
 
 
 DISTRIBUTION_ID=$(aws cloudfront list-distributions --query 'DistributionList.Items[?Aliases.Items[0]==`odan.dev`].Id' --output text)
