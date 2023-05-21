@@ -2,4 +2,4 @@
 
 set -eu
 
-yarn workspace app generate
+npm run generate -w app
