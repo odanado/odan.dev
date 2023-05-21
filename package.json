@@ -4,10 +4,9 @@
   "repository": "git@github.com:odanado/odan.dev.git",
   "author": "odan <odan3240@gmail.com>",
   "workspaces": [
-    "app",
-    "terraform"
+    "app"
   ],
   "scripts": {
-    "dev": "yarn workspace app dev"
+    "dev": "npm run dev --workspaces --if-present"
   }
 }
